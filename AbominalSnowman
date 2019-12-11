@@ -2,7 +2,7 @@ AbominalSnowman:
   Type: SNOWMAN
   Display: '&aAbominal Snowman'
   Health: 1000
-  Damage: 50
+  Damage: 10
   Faction: Snow
   AITargetSelectors:
   - 0 clear
@@ -16,10 +16,11 @@ AbominalSnowman:
     ~onPlayerKill >0 1
   - skill{s=SummonBear} @self 0.1
   - skill{s=SmashAttack} @PlayersInRadius{r=10} >0 0.2
+  - shoot{type=SNOWBALL;velocity=3;damage=10;vspread=3;hspread=3] 
+    ~onTimer:3
   Drops:
   - AbominalSnowmanDrops
   Options:
-    Size: 25
     AlwaysShowName: true
     MovementSpeed: 0.2
     MaxCombatDistance: 50
