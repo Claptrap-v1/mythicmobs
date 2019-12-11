@@ -1,0 +1,26 @@
+AbominalSnowman:
+  Type: SNOWMAN
+  Display: '&aAbominal Snowman'
+  Health: 1000
+  Damage: 50
+  Faction: Snow
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Skills:
+  - message{cooldown=20;m="<mob.name><&co> I will never melt!"}
+    @PlayersInRadius{r=40} ~onCombat >0 0.2
+  - message{m="<mob.name><&co> Ahahahahah! Melt, <trigger.name>!"} @PlayersInRadius{r=40}
+    ~onPlayerKill >0 1
+  - skill{s=SummonBear} @self 0.1
+  - skill{s=SmashAttack} @PlayersInRadius{r=10} >0 0.2
+  Drops:
+  - AbominalSnowmanDrops
+  Options:
+    Size: 25
+    AlwaysShowName: true
+    MovementSpeed: 0.2
+    MaxCombatDistance: 50
+    PreventOtherDrops: true
